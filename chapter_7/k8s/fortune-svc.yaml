@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: fortune
+spec:
+  selector:
+    app: fortune
+  ports:
+    - port: 8080
+      targetPort: http
+      name: http
+    - port: 443
+      targetPort: https
+      name: https
+  type: NodePort
