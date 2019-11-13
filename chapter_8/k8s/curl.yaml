@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: curl
+  labels:
+    app: curl
+spec:
+  containers:
+    - name: curl
+      image: tutum/curl
+      imagePullPolicy: IfNotPresent
+      command: ["sleep", "999999"]
+      env:
+        - name: CURL_CA_BUNDLE
+          value: "/var/run/secrets/kubernetes.io/serviceaccount/ca.crt"
+  restartPolicy: Always

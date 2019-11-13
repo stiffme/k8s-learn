@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: curl-with-ambassador
+  labels:
+    app: curl-with-ambassador
+spec:
+  containers:
+    - name: curl-with-ambassador
+      image: tutum/curl
+      imagePullPolicy: IfNotPresent
+      command:
+        - "sleep"
+        - "999999"
+    - name: ambassador
+      image: stiffme/kubectl-proxy:1.16.2
+  restartPolicy: Always
